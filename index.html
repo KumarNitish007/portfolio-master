@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nitish Kumar — .NET + Angular 19 Full Stack</title>
+  <meta name="description" content="Nitish Kumar — .NET + Angular 19 full-stack developer in Pune. Featured projects: SP-EPC DataBank ERP, Construction Management (Angular 19 + .NET 8), Talent Acquisition platform and an Enterprise Asset Management system with a Windows agent.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -935,6 +936,226 @@
       display: inline-block;
       margin-left: 10px;
     }
+
+    /* ================= FEATURED PROJECTS ================= */
+    #projects { background: var(--bg); overflow-x: clip; }
+    #projects::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(700px 400px at 8% 6%, rgba(0,212,255,0.07), transparent 70%),
+        radial-gradient(700px 400px at 95% 45%, rgba(123,97,255,0.07), transparent 70%),
+        radial-gradient(600px 400px at 10% 92%, rgba(255,179,71,0.05), transparent 70%);
+    }
+    #projects .section-inner { position: relative; }
+    #projects .section-heading { margin-bottom: 0; }
+    #projects .divider { margin: 16px 0 28px; }
+    .pj-lead { max-width: 780px; color: var(--muted); font-size: 16px; line-height: 1.8; margin-bottom: 14px; }
+    .pj-lead strong { color: var(--text); font-weight: 500; }
+    .pj-note { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 1px; color: #3f587a; margin-bottom: 36px; }
+    .pj-note::before { content: '// '; color: var(--accent); }
+
+    .pj-snapshot {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden; margin-bottom: 36px;
+    }
+    .pj-snap { background: var(--card); padding: 24px 16px; text-align: center; position: relative; }
+    .pj-snap::after { content: ''; position: absolute; left: 20%; right: 20%; bottom: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: .5; }
+    .pj-snap b { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 2px; line-height: 1; display: block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .pj-snap span { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 6px; display: block; }
+
+    .pj-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
+    .pj-chip {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 9px 20px; border-radius: 22px; border: 1px solid var(--border); background: transparent; color: var(--muted);
+      cursor: pointer; transition: color .25s, border-color .25s, background .25s, transform .2s;
+    }
+    .pj-chip:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+    .pj-chip.active { color: var(--bg); border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 0 24px rgba(0,212,255,.25); }
+    .pj-chip em { font-style: normal; opacity: .6; margin-left: 6px; }
+
+    .pj-list { display: flex; flex-direction: column; gap: 110px; }
+    .pj-card { --pj: #00d4ff; --pj-rgb: 0,212,255; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+    .pj-card[hidden] { display: none; }
+    .pj-card > * { min-width: 0; }
+    .pj-card:nth-child(even) .pj-visual { order: 2; }
+
+    /* ---- visual / mock window ---- */
+    .pj-visual { position: sticky; top: 110px; perspective: 1200px; }
+    .pj-visual::before {
+      content: ''; position: absolute; inset: -60px; z-index: 0; pointer-events: none;
+      background: radial-gradient(closest-side, rgba(var(--pj-rgb), .22), transparent);
+    }
+    .pj-window {
+      position: relative; z-index: 1; background: var(--card); border: 1px solid rgba(var(--pj-rgb), .38); border-radius: 12px; overflow: hidden;
+      box-shadow: 0 34px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.02); transition: transform .25s ease-out; transform-style: preserve-3d;
+    }
+    .pj-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: rgba(255,255,255,.03); border-bottom: 1px solid var(--border); }
+    .pj-bar i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .pj-bar i:nth-child(1) { background: #ff5f57; } .pj-bar i:nth-child(2) { background: #febc2e; } .pj-bar i:nth-child(3) { background: #28c840; }
+    .pj-url { margin-left: 10px; flex: 1; min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); background: rgba(0,0,0,.28); padding: 4px 12px; border-radius: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pj-url::before { content: '🔒 '; font-size: 9px; }
+    .pj-screen { padding: 16px; min-height: 318px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+    .pj-screen::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.18)); }
+    .pj-cap { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; justify-content: space-between; }
+    .pj-cap b { color: var(--pj); font-weight: 600; }
+    .pj-live { display: inline-flex; align-items: center; gap: 6px; }
+    .pj-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); box-shadow: 0 0 8px var(--accent3); animation: pulse 2s infinite; }
+
+    .pj-layout { display: grid; grid-template-columns: 98px 1fr; gap: 14px; flex: 1; }
+    .pj-side { display: flex; flex-direction: column; gap: 6px; }
+    .pj-side span { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; padding: 7px 8px; border-radius: 5px; color: var(--muted); background: rgba(255,255,255,.03); border-left: 2px solid transparent; }
+    .pj-side span.on { color: var(--pj); background: rgba(var(--pj-rgb), .12); border-left-color: var(--pj); }
+    .pj-main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+    /* travelling packet along a track (P1 pipeline) */
+    .pj-track { position: relative; display: flex; justify-content: space-between; padding: 0 2px; margin-top: 4px; }
+    .pj-track::before { content: ''; position: absolute; left: 12%; right: 12%; top: 10px; height: 2px; background: var(--border); }
+    .pj-packet { position: absolute; top: 6px; left: 12%; width: 10px; height: 10px; border-radius: 50%; background: var(--pj); box-shadow: 0 0 14px var(--pj), 0 0 30px var(--pj); animation: pjTravel 6s linear infinite; z-index: 2; }
+    @keyframes pjTravel { 0% { left: 12%; opacity: 0; } 4% { opacity: 1; } 68% { left: calc(88% - 10px); opacity: 1; } 76%,100% { left: calc(88% - 10px); opacity: 0; } }
+    .pj-node { position: relative; z-index: 1; text-align: center; width: 20%; }
+    .pj-node b { display: block; margin: 0 auto 7px; width: 22px; height: 22px; border-radius: 50%; background: var(--surface); border: 2px solid var(--border); animation: pjLit 6s linear infinite; animation-delay: calc(var(--i) * 1.05s); }
+    .pj-node small { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--muted); letter-spacing: .5px; }
+    @keyframes pjLit {
+      0%, 24% { border-color: var(--pj); background: var(--pj); box-shadow: 0 0 14px var(--pj); }
+      32%, 100% { border-color: var(--border); background: var(--surface); box-shadow: none; }
+    }
+
+    .pj-chat { display: flex; flex-direction: column; gap: 8px; }
+    .pj-msg { max-width: 90%; padding: 8px 12px; border-radius: 10px; font-size: 11px; line-height: 1.55; }
+    .pj-msg.u { align-self: flex-end; background: rgba(var(--pj-rgb), .15); border: 1px solid rgba(var(--pj-rgb), .3); color: var(--text); border-bottom-right-radius: 2px; }
+    .pj-msg.b { align-self: flex-start; background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--muted); border-bottom-left-radius: 2px; }
+    .pj-msg.b em { color: var(--accent3); font-style: normal; }
+    .pj-intent { display: inline-block; margin-bottom: 4px; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 1px; color: var(--pj); background: rgba(var(--pj-rgb), .1); border: 1px solid rgba(var(--pj-rgb), .25); border-radius: 3px; padding: 1px 6px; }
+    .pj-typing { align-self: flex-start; padding: 6px 10px; }
+    .pj-typing span { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); display: inline-block; margin-right: 3px; animation: pjBlink 1.2s infinite; }
+    .pj-typing span:nth-child(2) { animation-delay: .2s; } .pj-typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes pjBlink { 0%, 60%, 100% { opacity: .25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+
+    /* breadcrumb / stage chips lit in sequence (P2, P3) */
+    .pj-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .pj-steps span { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; padding: 6px 10px; border-radius: 4px; color: var(--muted); border: 1px solid var(--border); background: rgba(255,255,255,.02); animation: pjChip 6s linear infinite; animation-delay: calc(var(--i) * 1s); }
+    .pj-steps s { color: var(--border); text-decoration: none; font-size: 10px; }
+    @keyframes pjChip {
+      0%, 16% { color: var(--bg); background: var(--pj); border-color: var(--pj); box-shadow: 0 0 16px rgba(var(--pj-rgb), .5); }
+      24%, 100% { color: var(--muted); background: rgba(255,255,255,.02); border-color: var(--border); box-shadow: none; }
+    }
+
+    .pj-kanban { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .pj-col { background: rgba(255,255,255,.025); border: 1px solid var(--border); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .pj-col h6 { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 400; margin-bottom: 2px; }
+    .pj-task { height: 34px; border-radius: 4px; background: var(--surface); border-left: 3px solid var(--c, var(--pj)); padding: 6px 8px; display: flex; flex-direction: column; justify-content: space-between; }
+    .pj-task i { display: block; height: 4px; border-radius: 2px; background: rgba(255,255,255,.12); }
+    .pj-task i:last-child { width: 55%; background: rgba(255,255,255,.06); }
+    .pj-task.drag { animation: pjDrag 3.2s ease-in-out infinite; box-shadow: 0 8px 22px rgba(0,0,0,.5); }
+    @keyframes pjDrag { 0%, 100% { transform: translate(0, 0) rotate(0); } 40%, 60% { transform: translate(14px, -6px) rotate(3deg); background: rgba(var(--pj-rgb), .18); } }
+    .pj-bars { display: flex; align-items: flex-end; gap: 8px; height: 62px; padding: 0 4px; border-bottom: 1px solid var(--border); }
+    .pj-bars i { flex: 1; border-radius: 3px 3px 0 0; height: var(--h); background: linear-gradient(180deg, var(--pj), rgba(var(--pj-rgb), .25)); transform-origin: bottom; animation: pjGrow 3.6s ease-in-out infinite alternate; animation-delay: calc(var(--i) * .18s); }
+    @keyframes pjGrow { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+
+    .pj-cand { display: grid; grid-template-columns: 26px 1fr auto auto; gap: 10px; align-items: center; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: rgba(255,255,255,.02); }
+    .pj-cand .av { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--pj), var(--accent2)); opacity: .85; }
+    .pj-cand .ln { display: grid; gap: 4px; }
+    .pj-cand .ln i { display: block; height: 5px; border-radius: 3px; background: rgba(255,255,255,.14); width: 70%; }
+    .pj-cand .ln i + i { width: 42%; background: rgba(255,255,255,.07); }
+    .pj-cand .st { font-size: 9px; letter-spacing: 1px; color: #ffb347; font-family: 'JetBrains Mono', monospace; }
+    .pj-cand .tag { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; padding: 2px 8px; border-radius: 10px; color: var(--pj); border: 1px solid rgba(var(--pj-rgb), .35); background: rgba(var(--pj-rgb), .08); }
+    .pj-meet { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 6px; font-size: 11px; color: var(--muted); background: rgba(var(--pj-rgb), .07); border: 1px dashed rgba(var(--pj-rgb), .4); }
+    .pj-meet b { color: var(--text); font-weight: 500; }
+
+    .pj-fleet { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; }
+    .pj-fleet i { position: relative; aspect-ratio: 1; border-radius: 4px; background: rgba(0,255,157,.18); border: 1px solid rgba(0,255,157,.45); }
+    .pj-fleet i::after { content: ''; position: absolute; inset: -1px; border-radius: 4px; box-shadow: 0 0 10px 1px rgba(0,255,157,.6); opacity: 0; animation: pjBeat 2.4s ease-in-out infinite; }
+    .pj-fleet i:nth-child(3n)::after { animation-delay: .5s; } .pj-fleet i:nth-child(4n)::after { animation-delay: 1.1s; } .pj-fleet i:nth-child(5n+1)::after { animation-delay: 1.7s; }
+    .pj-fleet i.off { background: rgba(107,128,160,.12); border-color: rgba(107,128,160,.35); }
+    .pj-fleet i.off::after { display: none; }
+    .pj-fleet i.warn { background: rgba(255,179,71,.2); border-color: rgba(255,179,71,.6); }
+    .pj-fleet i.warn::after { box-shadow: 0 0 10px 1px rgba(255,179,71,.65); }
+    @keyframes pjBeat { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    .pj-legend { display: flex; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 1px; }
+    .pj-legend span::before { content: '● '; color: var(--accent3); } .pj-legend span:nth-child(2)::before { color: #ffb347; } .pj-legend span:nth-child(3)::before { color: #6b80a0; }
+    .pj-gauges { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; align-items: center; }
+    .pj-spark { width: 100%; height: 62px; overflow: visible; }
+    .pj-spark polyline { fill: none; stroke: var(--pj); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 340; stroke-dashoffset: 340; animation: pjDash 5s ease-in-out infinite; filter: drop-shadow(0 0 5px var(--pj)); }
+    .pj-spark .fill { fill: url(#pjg); stroke: none; filter: none; stroke-dasharray: none; stroke-dashoffset: 0; opacity: .5; animation: pjFade 5s ease-in-out infinite; }
+    @keyframes pjDash { 0% { stroke-dashoffset: 340; } 55%, 90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes pjFade { 0%, 30% { opacity: 0; } 60%, 90% { opacity: .5; } 100% { opacity: 0; } }
+    .pj-g { display: grid; gap: 7px; }
+    .pj-g div { display: grid; grid-template-columns: 34px 1fr; gap: 8px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--muted); letter-spacing: 1px; }
+    .pj-g span { display: block; height: 5px; border-radius: 3px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .pj-g span i { display: block; height: 100%; width: var(--w); border-radius: 3px; background: linear-gradient(90deg, var(--pj), var(--accent2)); animation: pjGauge 4s ease-in-out infinite alternate; }
+    @keyframes pjGauge { from { transform: scaleX(.55); } to { transform: scaleX(1); } } .pj-g span i { transform-origin: left; }
+
+    /* ---- body ---- */
+    .pj-kicker { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; }
+    .pj-index { font-family: 'Bebas Neue', sans-serif; font-size: 58px; line-height: 1; letter-spacing: 2px; color: transparent; -webkit-text-stroke: 1px rgba(var(--pj-rgb), .65); }
+    .pj-type { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pj); }
+    .pj-status { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--accent3); border: 1px solid rgba(0,255,157,.3); background: rgba(0,255,157,.08); padding: 4px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 8px; }
+    .pj-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); box-shadow: 0 0 8px var(--accent3); animation: pulse 2s infinite; }
+    .pj-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 3.8vw, 54px); letter-spacing: 2px; line-height: 1.02; margin-bottom: 10px; }
+    .pj-tagline { color: var(--pj); font-size: 15px; font-weight: 500; line-height: 1.55; margin-bottom: 14px; }
+    .pj-desc { font-size: 14.5px; color: var(--muted); line-height: 1.85; margin-bottom: 22px; }
+    .pj-desc strong { color: var(--text); font-weight: 500; }
+    .pj-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px; }
+    .pj-metric { background: var(--card); border: 1px solid var(--border); border-top: 2px solid var(--pj); border-radius: 6px; padding: 13px 6px 11px; text-align: center; transition: transform .25s, border-color .25s; }
+    .pj-metric:hover { transform: translateY(-4px); border-color: var(--pj); }
+    .pj-metric b { font-family: 'Bebas Neue', sans-serif; font-size: 30px; line-height: 1; letter-spacing: 1px; color: var(--text); display: block; }
+    .pj-metric span { font-family: 'JetBrains Mono', monospace; font-size: 8.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; margin-top: 5px; line-height: 1.35; }
+    .pj-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 22px; }
+    .pj-flow .n { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; padding: 6px 11px; border-radius: 4px; background: rgba(var(--pj-rgb), .08); border: 1px solid rgba(var(--pj-rgb), .28); color: var(--text); }
+    .pj-flow .a { color: var(--pj); font-size: 13px; }
+    .pj-points { list-style: none; display: grid; gap: 9px; margin-bottom: 22px; }
+    .pj-points li { position: relative; padding-left: 22px; font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .pj-points li::before { content: '▸'; position: absolute; left: 0; color: var(--pj); }
+    .pj-points li strong { color: var(--text); font-weight: 500; }
+    .pj-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .pj-tech span { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--pj); background: rgba(var(--pj-rgb), .08); border: 1px solid rgba(var(--pj-rgb), .22); border-radius: 2px; padding: 3px 9px; }
+    .pj-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .pj-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; color: var(--bg); background: linear-gradient(135deg, var(--pj), var(--accent2)); padding: 12px 26px; border-radius: 3px; text-decoration: none; font-weight: 600; transition: transform .2s, box-shadow .2s; box-shadow: 0 0 26px rgba(var(--pj-rgb), .22); }
+    .pj-link:hover { transform: translateY(-3px); box-shadow: 0 10px 38px rgba(var(--pj-rgb), .4); }
+    .pj-private { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); }
+    .pj-private::before { content: '🔒 '; }
+    details.pj-more { margin-top: 24px; border: 1px solid var(--border); border-radius: 8px; background: rgba(255,255,255,.02); transition: border-color .3s; }
+    details.pj-more[open], details.pj-more:hover { border-color: rgba(var(--pj-rgb), .5); }
+    details.pj-more summary { cursor: pointer; list-style: none; padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--pj); display: flex; justify-content: space-between; align-items: center; }
+    details.pj-more summary::-webkit-details-marker { display: none; }
+    details.pj-more summary::after { content: '+'; font-size: 18px; line-height: 1; transition: transform .3s; }
+    details.pj-more[open] summary::after { content: '−'; }
+    .pj-deep { padding: 2px 18px 18px; display: grid; gap: 16px; }
+    .pj-deep div { border-left: 2px solid rgba(var(--pj-rgb), .55); padding-left: 14px; }
+    .pj-deep b { display: block; font-size: 13.5px; color: var(--text); font-weight: 600; margin-bottom: 3px; }
+    .pj-deep p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .pj-deep code { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--pj); background: rgba(var(--pj-rgb), .08); padding: 1px 6px; border-radius: 3px; }
+
+    .pj-cta { margin-top: 90px; text-align: center; padding: 44px 24px; border: 1px solid var(--border); border-radius: 12px; background: linear-gradient(135deg, rgba(0,212,255,.05), rgba(123,97,255,.06)); }
+    .pj-cta h3 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px, 3vw, 40px); letter-spacing: 2px; margin-bottom: 8px; }
+    .pj-cta p { color: var(--muted); font-size: 14.5px; max-width: 620px; margin: 0 auto 22px; line-height: 1.7; }
+
+    @media (max-width: 1024px) {
+      .pj-card { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+      .pj-card:nth-child(even) .pj-visual { order: 0; }
+      .pj-visual { position: relative; top: auto; }
+      .pj-list { gap: 84px; }
+      .pj-snapshot { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .pj-metrics { grid-template-columns: repeat(2, 1fr); }
+      .pj-layout { grid-template-columns: 1fr; }
+      .pj-side { flex-direction: row; flex-wrap: wrap; }
+      .pj-gauges { grid-template-columns: 1fr; }
+      .pj-status { margin-left: 0; }
+      .pj-index { font-size: 46px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pj-window *, .pj-status::before, .pj-live::before { animation: none !important; }
+      .pj-node b, .pj-steps span:first-child { border-color: var(--pj); }
+      .pj-spark polyline { stroke-dashoffset: 0; }
+      .pj-packet { display: none; }
+    }
+      .form-hint { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .5px; color: var(--muted); text-align: center; margin-top: -6px; }
+    .form-hint.err { color: #ff6b6b; }
+    .form-input.err { border-color: #ff6b6b; }
   </style>
 </head>
 <body>
@@ -948,6 +1169,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
@@ -966,17 +1188,17 @@
       </h1>
       <p class="hero-sub">
         <span>6+ Years</span> delivering enterprise-grade .NET solutions — powering ERP systems and healthcare platforms. 
-        <strong style="color:var(--accent3);">+ 2 years Angular 19</strong> for modern, reactive frontends.
+        <strong style="color:var(--accent3);">Plus 2+ years of Angular 19</strong> for modern, reactive frontends.
         <br>👉 Freelance .NET + Angular Developer | Available now
       </p>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">⚡ Let's Work Together</a>
-        <a href="#experience" class="btn-outline">↓ View My Work</a>
+        <a href="#projects" class="btn-outline">↓ View My Work</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="badge-float">
-        <span>5.7</span>
+        <span>6+</span>
         <span>YRS EXP</span>
       </div>
       <div class="hero-card">
@@ -992,7 +1214,7 @@
           <div class="code-line indent1"><span class="kw">public</span> <span class="prop">name</span>: <span class="kw">string</span> = <span class="str">"Nitish Kumar"</span>;</div>
           <div class="code-line indent1"><span class="kw">public</span> <span class="prop">role</span>: <span class="kw">string</span> = <span class="str">".NET + Angular 19 Full Stack"</span>;</div>
           <div class="code-line indent1"><span class="kw">public</span> <span class="prop">experience</span>: <span class="kw">number</span> = <span class="num">6</span>; <span class="comment">// years</span></div>
-          <div class="code-line indent1"><span class="kw">public</span> <span class="prop">angularExp</span>: <span class="kw">number</span> = <span class="num">2</span>; <span class="comment">// years with Angular 19</span></div>
+          <div class="code-line indent1"><span class="kw">public</span> <span class="prop">angularExp</span>: <span class="kw">number</span> = <span class="num">2</span>; <span class="comment">// 2+ years with Angular 19</span></div>
           <div class="code-line indent1"><span class="kw">public</span> <span class="prop">stack</span>: <span class="kw">string[]</span> = [</div>
           <div class="code-line indent2"><span class="str">".NET Core 8"</span>, <span class="str">"C#"</span>, <span class="str">"Angular 19"</span>,</div>
           <div class="code-line indent2"><span class="str">"SQL Server"</span>, <span class="str">"ASP.NET MVC"</span>, <span class="str">"Web API"</span></div>
@@ -1019,12 +1241,12 @@
     <div class="about-grid">
       <div class="about-text reveal">
         <p>I'm a <strong>.NET Full Stack Developer</strong> with <span class="highlight">6+ years of experience</span> building enterprise-grade ERP and healthcare applications. Based in <strong>Pune, India</strong>, I specialize in end-to-end development with deep expertise in backend architecture and modern frontends using <strong style="color:var(--accent3);">Angular 19</strong>.</p>
-        <p>Currently at <strong>Orient Technology Ltd.</strong>, I'm building a large-scale ERP for Shapoorji Pallonji Engineering. Previously, I delivered healthcare ERP solutions for Krsnaa Diagnostic and government health platforms. <span class="highlight">I have 2 years of hands-on experience with Angular 19</span>, building reactive, component-driven SPAs with RxJS, Signals, and standalone components.</p>
+        <p>Currently at <strong>Orient Technology Ltd.</strong>, I'm building a large-scale ERP for Shapoorji Pallonji Engineering. Previously, I delivered healthcare ERP solutions for Krsnaa Diagnostic and government health platforms. <span class="highlight">I have 2+ years of hands-on experience with Angular 19</span>, building reactive, component-driven SPAs with RxJS, Signals, and standalone components.</p>
         <p>I thrive on <span class="highlight">clean architecture</span>, performance optimization, and building systems that scale. Whether it's a greenfield enterprise app or optimizing existing codebases, I bring end-to-end ownership to every project.</p>
         <div class="about-info">
           <div class="info-item"><div class="label">Location</div><div class="value">📍 Pune, India</div></div>
           <div class="info-item"><div class="label">Experience</div><div class="value">⚡ 6+ Years</div></div>
-          <div class="info-item"><div class="label">Angular 19</div><div class="value">🅰️ 2 Years</div></div>
+          <div class="info-item"><div class="label">Angular 19</div><div class="value">🅰️ 2+ Years</div></div>
           <div class="info-item"><div class="label">Availability</div><div class="value">✅ Open to Work</div></div>
         </div>
       </div>
@@ -1130,6 +1352,278 @@
   </div>
 </section>
 
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-tag">Featured Work</div>
+    <h2 class="section-heading">PROJECTS I'VE BUILT</h2>
+    <div class="divider"></div>
+    <p class="pj-lead reveal">Four flagship platforms I've engineered for <strong>Shapoorji Pallonji EPC</strong> — spanning a document-and-project ERP core, a modern <strong>Angular 19</strong> construction-management suite, an end-to-end recruitment platform, and a Windows-agent IT asset monitoring system built from scratch.</p>
+    <p class="pj-note">UI panels below are animated illustrations of each product. Real screenshots are withheld for client confidentiality.</p>
+
+    <div class="pj-snapshot reveal">
+      <div class="pj-snap"><b class="pj-count" data-to="4">0</b><span>Flagship platforms</span></div>
+      <div class="pj-snap"><b class="pj-count" data-to="50">0</b><span>REST &amp; MVC controllers</span></div>
+      <div class="pj-snap"><b class="pj-count" data-to="170" data-suffix="+">0</b><span>Stored procedures</span></div>
+      <div class="pj-snap"><b class="pj-count" data-to="75" data-suffix="+">0</b><span>Crystal report templates</span></div>
+    </div>
+
+    <div class="pj-filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="pj-chip active" data-f="all" role="tab" aria-selected="true">All<em>4</em></button>
+      <button class="pj-chip" data-f="erp" role="tab" aria-selected="false">Enterprise ERP<em>2</em></button>
+      <button class="pj-chip" data-f="hr" role="tab" aria-selected="false">HR Tech<em>1</em></button>
+      <button class="pj-chip" data-f="it" role="tab" aria-selected="false">IT Operations<em>1</em></button>
+    </div>
+
+    <div class="pj-list">
+
+      <!-- ============ 01 · SP-EPC DATABANK ============ -->
+      <article class="pj-card reveal" data-cat="erp" style="--pj:#00d4ff;--pj-rgb:0,212,255">
+        <div class="pj-visual">
+          <div class="pj-window" role="img" aria-label="Illustrative view of the SP-EPC DataBank document workflow and smart-search assistant">
+            <div class="pj-bar"><i></i><i></i><i></i><span class="pj-url">databank / dms / document-workflow</span></div>
+            <div class="pj-screen">
+              <div class="pj-cap"><span>Document <b>Workflow</b></span><span class="pj-live">live</span></div>
+              <div class="pj-layout">
+                <div class="pj-side">
+                  <span class="on">DMS</span><span>Projects</span><span>HR</span><span>Bid / No-Bid</span><span>Inspection</span><span>Accounts</span>
+                </div>
+                <div class="pj-main">
+                  <div class="pj-track">
+                    <div class="pj-packet"></div>
+                    <div class="pj-node" style="--i:0"><b></b><small>Upload</small></div>
+                    <div class="pj-node" style="--i:1"><b></b><small>Review</small></div>
+                    <div class="pj-node" style="--i:2"><b></b><small>Revision</small></div>
+                    <div class="pj-node" style="--i:3"><b></b><small>Transmittal</small></div>
+                    <div class="pj-node" style="--i:4"><b></b><small>Approved</small></div>
+                  </div>
+                  <div class="pj-chat">
+                    <div class="pj-msg u">Status of the latest transmittal for this drawing?</div>
+                    <div class="pj-msg b"><span class="pj-intent">intent: TRANSMITTAL_INFO</span><br>Transmittal issued to client · review cycle <em>Approved ✓</em></div>
+                    <div class="pj-msg b pj-typing"><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pj-body">
+          <div class="pj-kicker"><span class="pj-index">01</span><span class="pj-type">Enterprise Portal · ERP Core</span><span class="pj-status">Live · Internal</span></div>
+          <h3 class="pj-title">SP-EPC DataBank</h3>
+          <p class="pj-tagline">The ERP backbone of Shapoorji Pallonji EPC — documents, project controls, HR and business development in one portal.</p>
+          <p class="pj-desc">A large <strong>ASP.NET Web Forms</strong> platform (.NET Framework 4.8) used across the EPC division. It runs the <strong>Document Management System</strong> for engineering drawings and transmittals, project-control modules, HR and inspection workflows, accounts trackers and bid decisions — powered by SQL Server stored procedures and a role-based menu system.</p>
+          <div class="pj-metrics">
+            <div class="pj-metric"><b class="pj-count" data-to="180" data-suffix="+">0</b><span>Screens</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="65" data-suffix="+">0</b><span>Crystal reports</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="10" data-suffix="+">0</b><span>Business modules</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="30" data-suffix="+">0</b><span>DMS screens</span></div>
+          </div>
+          <div class="pj-flow"><span class="n">Web Forms UI</span><span class="a">→</span><span class="n">Repository / Service layer</span><span class="a">→</span><span class="n">SQL Server · SPs</span><span class="a">→</span><span class="n">Crystal · FTP</span></div>
+          <ul class="pj-points">
+            <li><strong>Document Management System</strong> — number-format rules, document groups, revisions, transmittals and multi-level review between company, vendor, consultant and client, with drawing dashboards.</li>
+            <li><strong>Project controls</strong> — Pre/Post-order package philosophy, risk register, technical query tracking, method statements and correspondence.</li>
+            <li><strong>HR &amp; operations</strong> — appraisals, attendance requests, e-resignation, timesheets, inspection call proforma, bank-guarantee and bill-of-exchange tracking.</li>
+            <li><strong>Smart-search assistant</strong> — natural-language lookup that detects intent (workflow, transmittal, uploads, review status, statistics) and resolves structured document numbers to live data.</li>
+          </ul>
+          <div class="pj-tech"><span>ASP.NET Web Forms</span><span>.NET Framework 4.8</span><span>C#</span><span>SQL Server</span><span>ADO.NET</span><span>Crystal Reports</span><span>jQuery / AJAX</span><span>Bootstrap</span><span>FTP</span><span>IIS</span></div>
+          <div class="pj-actions">
+            <a class="pj-link" href="https://spepcdatabank.shapoorji.com/" target="_blank" rel="noopener">Open Live Portal ↗</a>
+            <span class="pj-private">Internal · login required</span>
+          </div>
+          <details class="pj-more">
+            <summary>Engineering notes</summary>
+            <div class="pj-deep">
+              <div><b>One sign-in across two generations of apps</b><p>Designed a short-lived, host-scoped SSO cookie with a server-side token exchange so the Web Forms portal signs users into the Angular apps automatically — no password ever travels in a URL.</p></div>
+              <div><b>Search that understands document numbers</b><p>Regex-based detection of structured drawing numbers plus intent routing to purpose-built SQL, returning JSON to a chat-style UI.</p></div>
+              <div><b>Reporting at scale</b><p>65+ Crystal templates — transmittal forms in several client-specific variants, BG / BoE accounts summaries, timesheets and HR forms.</p></div>
+              <div><b>Layered architecture inside Web Forms</b><p>Repository and service classes (<code>DocumentReview</code>, <code>RolesAccess</code>, <code>Navigation</code>) with a shared SQL helper keep a legacy stack maintainable and testable.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- ============ 02 · CONSTRUCTION MANAGEMENT (PMCMS) ============ -->
+      <article class="pj-card reveal" data-cat="erp" style="--pj:#7b61ff;--pj-rgb:123,97,255">
+        <div class="pj-visual">
+          <div class="pj-window" role="img" aria-label="Illustrative view of the Construction Management app: BOQ drill-down, task board and budget chart">
+            <div class="pj-bar"><i></i><i></i><i></i><span class="pj-url">pmcms / #/dashboard</span></div>
+            <div class="pj-screen">
+              <div class="pj-cap"><span>BOQ <b>Drill-down</b></span><span class="pj-live">live</span></div>
+              <div class="pj-steps">
+                <span style="--i:0">Project</span><s>›</s><span style="--i:1">BOQ</span><s>›</s><span style="--i:2">Package</span><s>›</s><span style="--i:3">Item</span><s>›</s><span style="--i:4">Activity</span>
+              </div>
+              <div class="pj-kanban">
+                <div class="pj-col"><h6>To do</h6><div class="pj-task" style="--c:#6b80a0"><i></i><i></i></div><div class="pj-task" style="--c:#6b80a0"><i></i><i></i></div></div>
+                <div class="pj-col"><h6>In progress</h6><div class="pj-task drag" style="--c:#7b61ff"><i></i><i></i></div><div class="pj-task" style="--c:#00d4ff"><i></i><i></i></div></div>
+                <div class="pj-col"><h6>Done</h6><div class="pj-task" style="--c:#00ff9d"><i></i><i></i></div><div class="pj-task" style="--c:#00ff9d"><i></i><i></i></div></div>
+              </div>
+              <div class="pj-cap"><span>Plan vs <b>Actual</b></span></div>
+              <div class="pj-bars">
+                <i style="--h:40%;--i:0"></i><i style="--h:62%;--i:1"></i><i style="--h:48%;--i:2"></i><i style="--h:80%;--i:3"></i><i style="--h:66%;--i:4"></i><i style="--h:92%;--i:5"></i><i style="--h:74%;--i:6"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pj-body">
+          <div class="pj-kicker"><span class="pj-index">02</span><span class="pj-type">Angular 19 SPA · Construction PM</span><span class="pj-status">Live · Internal</span></div>
+          <h3 class="pj-title">Construction Management (PMCMS)</h3>
+          <p class="pj-tagline">From project to activity — BOQ-driven construction control with approvals, fine-grained RBAC and an offline desktop edition.</p>
+          <p class="pj-desc">A modern rebuild of the EPC project-control tools: an <strong>Angular 19</strong> SPA on a <strong>Clean-Architecture .NET 8</strong> API. Users drill <strong>Project → BOQ → Package → Item → Activity</strong>, release and approve drawings, track pre-order status of packages, and manage critical issues, bid/no-bid decisions, correspondence and conference booking.</p>
+          <div class="pj-metrics">
+            <div class="pj-metric"><b class="pj-count" data-to="18">0</b><span>REST controllers</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="170" data-suffix="+">0</b><span>Stored procedures</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="11">0</b><span>Feature modules</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="3">0</b><span>RBAC levels</span></div>
+          </div>
+          <div class="pj-flow"><span class="n">Angular 19 SPA</span><span class="a">→</span><span class="n">.NET 8 API · Clean Arch</span><span class="a">→</span><span class="n">SQL Server · SPs</span><span class="a">→</span><span class="n">Electron desktop</span></div>
+          <ul class="pj-points">
+            <li><strong>BOQ drill-down</strong> — the full Project → BOQ → Package → Item → Activity hierarchy, with plan-vs-actual week columns in the activity window.</li>
+            <li><strong>Drawing release &amp; approval</strong> — approvers assigned through component-level RBAC; approval locks activities and rolls released and executed quantities up to BOQ items.</li>
+            <li><strong>Pre-order status</strong> — header plus multi-line entry grid with BOQ-filtered package dropdowns and staged rows before save.</li>
+            <li><strong>Dashboards &amp; boards</strong> — Chart.js analytics, drag-and-drop task board and a critical-issue tracker.</li>
+          </ul>
+          <div class="pj-tech"><span>Angular 19</span><span>Angular Material</span><span>RxJS</span><span>TypeScript</span><span>Chart.js</span><span>.NET 8 Web API</span><span>ADO.NET</span><span>SQL Server</span><span>JWT</span><span>Electron</span><span>GitHub Actions</span></div>
+          <div class="pj-actions">
+            <a class="pj-link" href="https://spepcdatabank.shapoorji.com/SP-EPC-NEWAPPL/PMCMS/browser/#/dashboard" target="_blank" rel="noopener">Open Live App ↗</a>
+            <span class="pj-private">Internal · login required</span>
+          </div>
+          <details class="pj-more">
+            <summary>Engineering notes</summary>
+            <div class="pj-deep">
+              <div><b>RBAC layered over a live legacy schema</b><p>Menu-, project- and button-level permissions built on top of the existing portal tables without changing them. One stored procedure (<code>usp_RBAC_Manager</code>) drives everything; Angular directives enforce it and an admin screen manages it.</p></div>
+              <div><b>Fail-closed approvals, idempotent roll-ups</b><p>The Approve / Reject control only renders for users holding the approver grant. Quantities are recomputed by <code>SUM</code> across approved releases, so repeated approvals never double-count.</p></div>
+              <div><b>Login against real portal accounts</b><p>Authenticates against the existing user and employee master with the portal's own encryption functions; refresh tokens live in a separate table so portal data is never modified.</p></div>
+              <div><b>Performance &amp; delivery</b><p>Diagnosed slowness as network-bound rather than SQL-bound and applied response compression and connection-pool warm-up. GitHub Actions CI/CD, plus an Electron installer with bundled SQLite for offline use.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- ============ 03 · TALENT ACQUISITION ============ -->
+      <article class="pj-card reveal" data-cat="hr" style="--pj:#00ff9d;--pj-rgb:0,255,157">
+        <div class="pj-visual">
+          <div class="pj-window" role="img" aria-label="Illustrative view of the Talent Acquisition hiring pipeline, candidate list and Teams interview">
+            <div class="pj-bar"><i></i><i></i><i></i><span class="pj-url">talentacquisition / hr / candidate-progress</span></div>
+            <div class="pj-screen">
+              <div class="pj-cap"><span>Hiring <b>Pipeline</b></span><span class="pj-live">live</span></div>
+              <div class="pj-steps">
+                <span style="--i:0">Applied</span><s>›</s><span style="--i:1">Viewed</span><s>›</s><span style="--i:2">Called</span><s>›</s><span style="--i:3">Interviewed</span><s>›</s><span style="--i:4">Selected</span>
+              </div>
+              <div class="pj-cand"><div class="av"></div><div class="ln"><i></i><i></i></div><div class="st">★★★★☆</div><div class="tag">Interviewed</div></div>
+              <div class="pj-cand"><div class="av"></div><div class="ln"><i></i><i></i></div><div class="st">★★★☆☆</div><div class="tag">Called</div></div>
+              <div class="pj-cand"><div class="av"></div><div class="ln"><i></i><i></i></div><div class="st">★★★★★</div><div class="tag">Selected</div></div>
+              <div class="pj-meet">📹 <span><b>Teams interview</b> · slot booked via Microsoft Graph · rating link emailed</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pj-body">
+          <div class="pj-kicker"><span class="pj-index">03</span><span class="pj-type">Recruitment Platform · HR Tech</span><span class="pj-status">Live · Internal</span></div>
+          <h3 class="pj-title">nCore Talent Acquisition</h3>
+          <p class="pj-tagline">From career portal to joining paperwork — one hiring pipeline for HR, interviewers and candidates.</p>
+          <p class="pj-desc">A <strong>.NET 8 MVC</strong> application on Clean Architecture. Candidates register with an <strong>email OTP</strong>, build a profile and apply for openings, while HR moves them through a tracked pipeline — Applied, Viewed, Called, Interviewed, Hold, Selected — schedules interviews, collects interviewer ratings and generates the joining forms.</p>
+          <div class="pj-metrics">
+            <div class="pj-metric"><b class="pj-count" data-to="35">0</b><span>Core services</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="85" data-suffix="+">0</b><span>Razor views</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="12">0</b><span>Report templates</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="2">0</b><span>Role areas · HR &amp; IT</span></div>
+          </div>
+          <div class="pj-flow"><span class="n">Razor MVC · HR / IT areas</span><span class="a">→</span><span class="n">Core services</span><span class="a">→</span><span class="n">EF Core · SQL Server</span><span class="a">→</span><span class="n">Graph · SMTP · FTP</span></div>
+          <ul class="pj-points">
+            <li><strong>Candidate journey</strong> — OTP-verified registration, personal / qualification / employment records, document upload to FTP and live application tracking.</li>
+            <li><strong>HR command centre</strong> — Chart.js dashboard, candidate list, progress timeline with remarks, status updates and email notifications.</li>
+            <li><strong>Interview workflow</strong> — Microsoft Teams meetings created through Microsoft Graph; interviewers rate candidates via secure emailed links.</li>
+            <li><strong>Paperwork &amp; reports</strong> — induction checklist, nomination, mediclaim, undertaking and profile forms in Crystal Reports; PDF (QuestPDF) and Excel (ClosedXML) exports.</li>
+          </ul>
+          <div class="pj-tech"><span>.NET 8</span><span>ASP.NET Core MVC</span><span>Razor</span><span>EF Core</span><span>ASP.NET Identity</span><span>SQL Server</span><span>Microsoft Graph</span><span>MailKit</span><span>Crystal Reports</span><span>QuestPDF</span><span>ClosedXML</span><span>Chart.js</span></div>
+          <div class="pj-actions">
+            <a class="pj-link" href="https://spepcdatabank.shapoorji.com/SP-EPC-NEWAPPL/TalentAcquisition" target="_blank" rel="noopener">Open Live App ↗</a>
+            <span class="pj-private">Internal · login required</span>
+          </div>
+          <details class="pj-more">
+            <summary>Engineering notes</summary>
+            <div class="pj-deep">
+              <div><b>Tokenised interview-rating links</b><p>Interviewers receive a per-slot link; only a <em>hash</em> of the token is stored, links are validated on every visit and each submission is recorded against the invite with the caller's IP.</p></div>
+              <div><b>Interviews without leaving the app</b><p>Creates the Teams meeting for the chosen slot through Microsoft Graph, with built-in diagnostics to verify the organiser account when integration misbehaves.</p></div>
+              <div><b>Secure by default</b><p>ASP.NET Identity with separate HR and IT areas, a global fallback policy requiring authentication, secure cookies in production, a distributed SQL-Server cache and central exception-handling middleware.</p></div>
+              <div><b>Clean Architecture</b><p>Core (domain, contracts, services), Infrastructure (repositories, EF Core) and UI (MVC) — one focused service class per use-case (getter / adder / updater / deleter / sorter) for testable business logic.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- ============ 04 · ENTERPRISE ASSET MANAGEMENT ============ -->
+      <article class="pj-card reveal" data-cat="it" style="--pj:#ffb347;--pj-rgb:255,179,71">
+        <div class="pj-visual">
+          <div class="pj-window" role="img" aria-label="Illustrative view of the Enterprise Asset Management fleet dashboard with device heartbeats and health gauges">
+            <div class="pj-bar"><i></i><i></i><i></i><span class="pj-url">asset-management / dashboard</span></div>
+            <div class="pj-screen">
+              <div class="pj-cap"><span>Endpoint <b>Fleet</b></span><span class="pj-live">heartbeat</span></div>
+              <div class="pj-fleet">
+                <i></i><i></i><i></i><i class="warn"></i><i></i><i></i><i></i><i class="off"></i><i></i><i></i>
+                <i></i><i class="off"></i><i></i><i></i><i></i><i class="warn"></i><i></i><i></i><i></i><i></i>
+                <i></i><i></i><i></i><i></i><i class="off"></i><i></i><i></i><i></i><i></i><i class="warn"></i>
+                <i></i><i></i><i class="warn"></i><i></i><i></i><i></i><i></i><i></i><i class="off"></i><i></i>
+              </div>
+              <div class="pj-legend"><span>online</span><span>alert</span><span>offline</span></div>
+              <div class="pj-gauges">
+                <svg class="pj-spark" viewBox="0 0 200 62" preserveAspectRatio="none" aria-hidden="true">
+                  <defs><linearGradient id="pjg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347" stop-opacity=".55"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></linearGradient></defs>
+                  <polygon class="fill" points="0,62 0,44 20,38 40,46 60,26 80,32 100,18 120,30 140,14 160,24 180,10 200,20 200,62"/>
+                  <polyline points="0,44 20,38 40,46 60,26 80,32 100,18 120,30 140,14 160,24 180,10 200,20"/>
+                </svg>
+                <div class="pj-g">
+                  <div>CPU<span><i style="--w:62%"></i></span></div>
+                  <div>RAM<span><i style="--w:78%"></i></span></div>
+                  <div>DISK<span><i style="--w:45%"></i></span></div>
+                </div>
+              </div>
+              <div class="pj-meet">📍 <span><b>GPS location</b> · reported by the agent from the logged-in user session</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="pj-body">
+          <div class="pj-kicker"><span class="pj-index">04</span><span class="pj-type">Endpoint Monitoring · IT Ops</span><span class="pj-status">Deployed · Internal</span></div>
+          <h3 class="pj-title">Enterprise Asset Management</h3>
+          <p class="pj-tagline">Discover, monitor and govern every Windows endpoint — agent, API and Angular portal built end-to-end.</p>
+          <p class="pj-desc">A platform designed and built from the ground up: a silent <strong>Windows service agent</strong> reports hardware, software, health, logins and GPS location; a secured <strong>.NET 8 API</strong> ingests it; and an <strong>Angular 19</strong> portal gives IT dashboards, asset lifecycle tracking, alerts, audit trails and reports.</p>
+          <div class="pj-metrics">
+            <div class="pj-metric"><b class="pj-count" data-to="35">0</b><span>Database tables</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="39">0</b><span>Indexes</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="14">0</b><span>API controllers</span></div>
+            <div class="pj-metric"><b class="pj-count" data-to="20">0</b><span>Unit tests</span></div>
+          </div>
+          <div class="pj-flow"><span class="n">Windows Agent · .NET Worker</span><span class="a">→</span><span class="n">REST API · JWT</span><span class="a">→</span><span class="n">SQL Server · EF Core</span><span class="a">→</span><span class="n">Angular 19 Portal</span></div>
+          <ul class="pj-points">
+            <li><strong>Zero-touch agent</strong> — Windows service installed silently through an MSI (GPO / Intune / SCCM); heartbeats, WMI hardware and software inventory, login / logout sessions.</li>
+            <li><strong>Fleet dashboards</strong> — online / offline status, OS, RAM and storage distributions, login-activity trends and hardware-change detection.</li>
+            <li><strong>Alerts &amp; governance</strong> — offline, inactive and outdated-agent alerts with email, asset assign / transfer / retire lifecycle, full audit log and retention jobs.</li>
+            <li><strong>Enterprise security</strong> — six-role RBAC with granular permissions, account lockout, rate limiting and structured Serilog logging.</li>
+          </ul>
+          <div class="pj-tech"><span>.NET 8</span><span>ASP.NET Core Web API</span><span>Worker Service</span><span>EF Core</span><span>SQL Server</span><span>Angular 19</span><span>Angular Material</span><span>Signals</span><span>JWT</span><span>WMI</span><span>WiX MSI</span><span>xUnit</span><span>GitHub Actions</span></div>
+          <div class="pj-actions">
+            <span class="pj-private">Source &amp; environments are private (client IP)</span>
+          </div>
+          <details class="pj-more">
+            <summary>Engineering notes</summary>
+            <div class="pj-deep">
+              <div><b>Hardware-based device identity</b><p>Endpoints are identified by a fingerprint built from BIOS, baseboard and network identifiers rather than a hostname. Device secrets are issued once, stored PBKDF2-hashed on the server and DPAPI-encrypted on the endpoint.</p></div>
+              <div><b>Two token audiences, zero cross-talk</b><p>Portal users and device agents get separate JWT audiences, and a <code>DeviceSelf</code> policy guarantees an agent can only post as itself — cross-device calls return 403.</p></div>
+              <div><b>GPS from a Windows service</b><p>Services can't read Windows Location from session 0, so the agent installs a per-user scheduled task that captures a real GPS fix in the user session and hands it back; any non-satellite fix is rejected rather than guessed.</p></div>
+              <div><b>Field-tested reliability</b><p>Caught and fixed an Active Directory email-lookup hang on non-domain machines (domain check plus a 5-second timeout). 20 automated tests on in-memory SQLite, and per-environment MSIs for dev, test and production.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pj-cta reveal">
+      <h3>WANT SOMETHING LIKE THIS BUILT?</h3>
+      <p>From legacy Web Forms modernisation to Angular 19 + .NET 8 platforms and Windows agents — I take systems from schema to deployment.</p>
+      <a href="#contact" class="btn-primary">⚡ Let's Talk</a>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="section-inner">
     <div class="section-tag">Work History</div>
@@ -1198,6 +1692,20 @@
             <div class="proj-client">📌 Reliance Jio Infocomm Ltd.</div>
             <div class="proj-desc">Network engineering and deployment for India's largest telecom provider.</div>
             <div class="proj-tech"><span class="proj-tag">Network Engineering</span><span class="proj-tag">FTTx</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#ff6b6b;box-shadow:0 0 15px #ff6b6b"></div>
+        <div class="timeline-period">JUL 2019 — FEB 2021</div>
+        <div class="timeline-company">Glyphisoft Technology Pvt. Ltd.</div>
+        <div class="timeline-role">// .NET Developer</div>
+        <div class="timeline-content">
+          <div class="proj-card">
+            <div class="proj-name">ERP System</div>
+            <div class="proj-desc">Developed ERP modules using ASP.NET Core MVC, C# and SQL Server.</div>
+            <div class="proj-tech"><span class="proj-tag">ASP.NET Core MVC</span><span class="proj-tag">C#</span><span class="proj-tag">SQL Server</span></div>
           </div>
         </div>
       </div>
@@ -1289,7 +1797,7 @@
     <div class="divider"></div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <p>Looking for a full-stack developer with deep .NET expertise and <strong style="color:var(--accent3);">2 years of Angular 19</strong> experience? Let's build your next enterprise-grade application.</p>
+        <p>Looking for a full-stack developer with deep .NET expertise and <strong style="color:var(--accent3);">2+ years of Angular 19</strong> experience? Let's build your next enterprise-grade application.</p>
         <div class="contact-links">
           <a href="tel:+918800935928" class="contact-link"><div class="contact-link-icon">📞</div><div class="contact-link-text"><span class="contact-link-label">Phone</span><span class="contact-link-value">+91 8800935928</span></div></a>
           <a href="mailto:nknitish043@gmail.com" class="contact-link"><div class="contact-link-icon">✉️</div><div class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">nknitish043@gmail.com</span></div></a>
@@ -1303,6 +1811,7 @@
         <div class="form-group"><label class="form-label">Project Type</label><input type="text" class="form-input" placeholder="ERP / API / Angular App / Other"></div>
         <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" placeholder="Tell me about your project..."></textarea></div>
         <button class="btn-primary" style="border:none;cursor:pointer;width:100%;justify-content:center;font-size:13px;" onclick="handleSend(this)">⚡ Send Message</button>
+        <p class="form-hint" id="formHint">Opens your email app with the message pre-filled, addressed to me.</p>
       </div>
     </div>
   </div>
@@ -1369,7 +1878,83 @@
   window.addEventListener('scroll', () => { const nav = document.querySelector('nav'); nav.style.background = window.scrollY > 50 ? 'rgba(5,8,16,0.97)' : 'linear-gradient(180deg, rgba(5,8,16,0.95) 0%, transparent 100%)'; });
 
   function toggleMenu() { const links = document.querySelector('.nav-links'); links.style.display = links.style.display === 'flex' ? 'none' : 'flex'; links.style.flexDirection = 'column'; links.style.position = 'absolute'; links.style.top = '70px'; links.style.left = '0'; links.style.right = '0'; links.style.background = 'rgba(5,8,16,0.98)'; links.style.padding = '20px 30px'; links.style.borderBottom = '1px solid #1a2d4a'; }
-  function handleSend(btn) { btn.textContent = '✓ Message Sent!'; btn.style.background = 'linear-gradient(135deg, #00ff9d, #00d4ff)'; setTimeout(() => { btn.textContent = '⚡ Send Message'; btn.style.background = ''; }, 3000); }
+  function buildMailto(name, email, type, message) {
+    const subject = 'Portfolio enquiry' + (type ? ' — ' + type : '') + ' (from ' + name + ')';
+    const body = message + '\n\n— ' + name + '\n' + email;
+    return 'mailto:nknitish043@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+  function handleSend(btn) {
+    const form = btn.closest('.contact-form');
+    const [nameEl, emailEl, typeEl] = form.querySelectorAll('input');
+    const msgEl = form.querySelector('textarea');
+    const hint = document.getElementById('formHint');
+    [nameEl, emailEl, msgEl].forEach(el => el.classList.remove('err'));
+    const bad = [];
+    if (!nameEl.value.trim()) bad.push(nameEl);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) bad.push(emailEl);
+    if (!msgEl.value.trim()) bad.push(msgEl);
+    if (bad.length) {
+      bad.forEach(el => el.classList.add('err'));
+      hint.textContent = 'Please fill in your name, a valid email and a message.'; hint.classList.add('err');
+      bad[0].focus(); return;
+    }
+    hint.classList.remove('err');
+    hint.textContent = 'Opening your email app… if nothing opens, write to nknitish043@gmail.com directly.';
+    window.location.href = buildMailto(nameEl.value.trim(), emailEl.value.trim(), typeEl.value.trim(), msgEl.value.trim());
+    btn.textContent = '✓ Email ready to send'; btn.style.background = 'linear-gradient(135deg, #00ff9d, #00d4ff)';
+    setTimeout(() => { btn.textContent = '⚡ Send Message'; btn.style.background = ''; }, 4000);
+  }
+
+  // ---- Featured Projects ----
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // exact counters (suffix only where the figure is a floor, e.g. "170+")
+    const pjCounters = document.querySelectorAll('.pj-count');
+    const pjCountObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, to = +el.dataset.to, suffix = el.dataset.suffix || '';
+        pjCountObs.unobserve(el);
+        if (reduce) { el.textContent = to + suffix; return; }
+        const t0 = performance.now(), dur = 1400;
+        (function tick(t) {
+          const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(to * eased) + (p === 1 ? suffix : '');
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, { threshold: 0.4 });
+    pjCounters.forEach(c => pjCountObs.observe(c));
+
+    // category filter
+    const chips = document.querySelectorAll('.pj-chip');
+    const cards = document.querySelectorAll('.pj-card');
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      const f = chip.dataset.f;
+      chips.forEach(c => { const on = c === chip; c.classList.toggle('active', on); c.setAttribute('aria-selected', on); });
+      cards.forEach(card => { card.hidden = !(f === 'all' || card.dataset.cat === f); });
+    }));
+
+    // subtle 3D tilt on the product windows (pointer devices only)
+    if (!reduce && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('.pj-visual').forEach(v => {
+        const w = v.querySelector('.pj-window');
+        v.addEventListener('mousemove', e => {
+          const r = v.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+          w.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+        });
+        v.addEventListener('mouseleave', () => { w.style.transform = ''; });
+      });
+    }
+
+    // custom cursor ring also reacts to the new interactive elements
+    document.querySelectorAll('#projects summary, #projects .pj-chip').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.style.width = '50px'; ring.style.height = '50px'; ring.style.opacity = '0.8'; });
+      el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5'; });
+    });
+  })();
 </script>
 </body>
 </html>
