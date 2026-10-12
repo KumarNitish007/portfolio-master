@@ -456,6 +456,35 @@ footer { padding: 40px 0 56px; }
 .lightbox { position: fixed; inset: 0; z-index: 600; display: none; place-items: center; padding: 24px; background: rgba(3,6,14,.9); cursor: zoom-out; }
 .lightbox.open { display: grid; }
 .lightbox img { max-width: min(1300px, 100%); max-height: 92vh; width: auto; height: auto; border-radius: 12px; box-shadow: 0 30px 100px rgba(0,0,0,.7); background: #f4f6f4; }
+/* =====================================================================
+   OPEN SOURCE
+   ===================================================================== */
+.os-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.os-card { display: flex; flex-direction: column; gap: 12px; padding: 18px 18px 22px; }
+.os-card:hover { transform: translateY(-4px); }
+.os-card h3 { font: 700 24px/1.2 'Sora', sans-serif; letter-spacing: -.02em; margin-top: -4px; }
+.os-shot { display: block; position: relative; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; border: 1px solid var(--panel-b); background: var(--bg2); margin-bottom: 6px; }
+.os-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.os-card:hover .os-shot img { transform: scale(1.03); }
+.os-d { display: none; }
+[data-theme="dark"] .os-l { display: none; } [data-theme="dark"] .os-d { display: block; }
+.os-k { font: 500 12px/1 'JetBrains Mono', monospace; letter-spacing: .14em; text-transform: uppercase; }
+.os-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 6px; flex-wrap: wrap; }
+.os-foot img { height: 20px; width: auto; }
+.os-diagram { display: grid; place-items: center; color: var(--muted); background: radial-gradient(circle at 30% 20%, rgba(139,92,246,.14), transparent 60%), radial-gradient(circle at 80% 90%, rgba(34,211,238,.12), transparent 55%), var(--bg2); }
+.os-diagram svg { width: 100%; height: 100%; }
+.os-box rect { fill: var(--panel); stroke: var(--panel-b); stroke-width: 1.5; }
+.os-box.hl rect { stroke: var(--c2); stroke-width: 2; }
+.os-box text, .os-bus text { font: 600 15px 'Inter', sans-serif; fill: var(--text); text-anchor: middle; }
+.os-box text.s { font: 500 12px 'JetBrains Mono', monospace; fill: var(--muted); }
+.os-bus rect { fill: rgba(var(--glow), .12); stroke: var(--c4); stroke-width: 1.5; }
+.os-bus text { font-size: 13px; }
+.os-flow path { fill: none; stroke: var(--c1); stroke-width: 2; stroke-dasharray: 6 6; animation: os-dash 1.4s linear infinite; }
+.os-cap { font: 500 12.5px 'JetBrains Mono', monospace; fill: var(--muted); text-anchor: middle; }
+@keyframes os-dash { to { stroke-dashoffset: -24; } }
+@media (max-width: 860px) { .os-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .os-flow path { animation: none; } .os-card:hover, .os-card:hover .os-shot img { transform: none; } }
+
 @media (max-width: 720px) { .gal-thumb img { height: 48px; } .gal-cap span:last-child { display: none; } }
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -523,6 +552,7 @@ footer { padding: 40px 0 56px; }
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#opensource">Open source</a>
       <a href="#experience">Experience</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
@@ -844,6 +874,76 @@ footer { padding: 40px 0 56px; }
           <div><b>One process on the desktop</b><p>The Electron app runs a single local host that serves the UI and the API and runs the background sync engine, packaged as a branded Windows installer.</p></div>
         </div></details>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OPEN SOURCE ============================ -->
+<section id="opensource">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Open source</span><h2 class="h2">Built in the open, <span class="grad">tested for real</span>.</h2><p class="sub">Four public projects on GitHub, built from scratch. Each has CI, tests against real infrastructure (SQL Server, RabbitMQ, Azure Storage emulators) and a design-decisions write-up.</p></div>
+
+    <div class="os-grid">
+      <article class="card spot os-card rv" style="--glow:34,211,238">
+        <a class="os-shot" href="https://github.com/KumarNitish007/mini-erp-saas" target="_blank" rel="noopener" aria-label="MiniERP on GitHub">
+          <img class="os-l" src="assets/oss/minierp.webp" alt="MiniERP dashboard: revenue, receivables, billing chart" loading="lazy" width="1200" height="750">
+          <img class="os-d" src="assets/oss/minierp-dark.webp" alt="" loading="lazy" width="1200" height="750">
+        </a>
+        <span class="os-k" style="color:var(--c1)">Multi-tenant SaaS</span>
+        <h3>MiniERP</h3>
+        <p class="m">Inventory and GST invoicing. Correct CGST/SGST/IGST, gap-free invoice numbering in SQL, PDF invoices, and tenant isolation proven by integration tests.</p>
+        <div class="tagrow"><span class="tag">.NET 8</span><span class="tag">Angular 19</span><span class="tag">SQL Server</span><span class="tag">EF Core + Dapper</span></div>
+        <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/mini-erp-saas" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/mini-erp-saas/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
+      </article>
+
+      <article class="card spot os-card rv" style="--glow:139,92,246;--d:.06s">
+        <a class="os-shot os-diagram" href="https://github.com/KumarNitish007/orderflow-microservices" target="_blank" rel="noopener" aria-label="OrderFlow on GitHub">
+          <svg viewBox="0 0 600 375" role="img" aria-label="OrderFlow architecture: gateway, orders saga, catalog and payments over RabbitMQ">
+            <defs><marker id="osa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+            <g class="os-box"><rect x="30" y="152" width="120" height="70" rx="12"/><text x="90" y="183">API Gateway</text><text class="s" x="90" y="203">YARP</text></g>
+            <g class="os-box hl"><rect x="230" y="152" width="140" height="70" rx="12"/><text x="300" y="183">Orders</text><text class="s" x="300" y="203">saga · outbox</text></g>
+            <g class="os-box"><rect x="450" y="62" width="120" height="70" rx="12"/><text x="510" y="93">Catalog</text><text class="s" x="510" y="113">stock holds</text></g>
+            <g class="os-box"><rect x="450" y="242" width="120" height="70" rx="12"/><text x="510" y="273">Payments</text><text class="s" x="510" y="293">charge once</text></g>
+            <g class="os-bus"><rect x="190" y="318" width="220" height="34" rx="17"/><text x="300" y="340">RabbitMQ · MassTransit</text></g>
+            <g class="os-flow">
+              <path d="M150 187H226" marker-end="url(#osa)"/>
+              <path d="M370 172C410 172 410 97 446 97" marker-end="url(#osa)"/>
+              <path d="M370 202C410 202 410 277 446 277" marker-end="url(#osa)"/>
+              <path d="M300 222V314" marker-end="url(#osa)"/>
+            </g>
+            <text class="os-cap" x="300" y="40">reserve stock → charge → complete · compensate on failure</text>
+          </svg>
+        </a>
+        <span class="os-k" style="color:var(--c2)">Event-driven microservices</span>
+        <h3>OrderFlow</h3>
+        <p class="m">Orders flow across services through a MassTransit saga, with compensation, a transactional outbox and OpenTelemetry tracing. End-to-end tests boot the whole system with .NET Aspire.</p>
+        <div class="tagrow"><span class="tag">.NET Aspire</span><span class="tag">RabbitMQ</span><span class="tag">MassTransit</span><span class="tag">YARP</span></div>
+        <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/orderflow-microservices" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/orderflow-microservices/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
+      </article>
+
+      <article class="card spot os-card rv" style="--glow:244,114,182">
+        <a class="os-shot" href="https://github.com/KumarNitish007/askdocs-rag" target="_blank" rel="noopener" aria-label="AskDocs on GitHub">
+          <img class="os-l" src="assets/oss/askdocs.webp" alt="AskDocs chat answering a question with page citations" loading="lazy" width="1200" height="750">
+          <img class="os-d" src="assets/oss/askdocs-dark.webp" alt="" loading="lazy" width="1200" height="750">
+        </a>
+        <span class="os-k" style="color:var(--c5)">AI document Q&amp;A (RAG)</span>
+        <h3>AskDocs</h3>
+        <p class="m">Chat with your PDFs. Hybrid BM25 + vector search, streaming answers with page-level citations, and a relevance gate against hallucination. Runs on Claude, Ollama, or fully offline.</p>
+        <div class="tagrow"><span class="tag">Claude API</span><span class="tag">RAG</span><span class="tag">.NET 8</span><span class="tag">Angular 19</span></div>
+        <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/askdocs-rag" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/askdocs-rag/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
+      </article>
+
+      <article class="card spot os-card rv" style="--glow:251,191,36;--d:.06s">
+        <a class="os-shot" href="https://github.com/KumarNitish007/sql-backup-agent" target="_blank" rel="noopener" aria-label="SqlBackupAgent on GitHub">
+          <img class="os-l" src="assets/oss/sqlbackup.webp" alt="SqlBackupAgent status page with jobs, runs and restore planner" loading="lazy" width="1200" height="750">
+          <img class="os-d" src="assets/oss/sqlbackup-dark.webp" alt="" loading="lazy" width="1200" height="750">
+        </a>
+        <span class="os-k" style="color:var(--c4)">SQL Server reliability</span>
+        <h3>SqlBackupAgent</h3>
+        <p class="m">Scheduled backups with verified off-site copies, retention that never breaks a restore chain, point-in-time restore planning from LSNs, and automatic restore drills with DBCC CHECKDB.</p>
+        <div class="tagrow"><span class="tag">SQL Server</span><span class="tag">Azure Blob</span><span class="tag">Windows Service</span><span class="tag">CLI</span></div>
+        <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/sql-backup-agent" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/sql-backup-agent/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
+      </article>
     </div>
   </div>
 </section>
