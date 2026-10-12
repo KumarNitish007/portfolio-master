@@ -482,7 +482,11 @@ footer { padding: 40px 0 56px; }
 .os-flow path { fill: none; stroke: var(--c1); stroke-width: 2; stroke-dasharray: 6 6; animation: os-dash 1.4s linear infinite; }
 .os-cap { font: 500 12.5px 'JetBrains Mono', monospace; fill: var(--muted); text-anchor: middle; }
 @keyframes os-dash { to { stroke-dashoffset: -24; } }
-@media (max-width: 860px) { .os-grid { grid-template-columns: 1fr; } }
+.os-wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 12px 28px; align-items: center; }
+.os-wide .os-shot { aspect-ratio: auto; margin: 0; grid-row: span 6; }
+.os-code { display: block; padding: 22px 22px 24px; font: 500 13.5px/1.75 'JetBrains Mono', monospace; color: var(--text); white-space: pre; overflow-x: auto; text-decoration: none; }
+.os-code .c { color: var(--muted); } .os-code .t { color: var(--c4); } .os-code .s { color: var(--c3); } .os-code .f { color: var(--c1); }
+@media (max-width: 860px) { .os-grid, .os-wide { grid-template-columns: 1fr; } .os-wide .os-shot { grid-row: auto; } }
 @media (prefers-reduced-motion: reduce) { .os-flow path { animation: none; } .os-card:hover, .os-card:hover .os-shot img { transform: none; } }
 
 @media (max-width: 720px) { .gal-thumb img { height: 48px; } .gal-cap span:last-child { display: none; } }
@@ -881,7 +885,7 @@ footer { padding: 40px 0 56px; }
 <!-- ============================ OPEN SOURCE ============================ -->
 <section id="opensource">
   <div class="wrap">
-    <div class="head rv"><span class="eyebrow">Open source</span><h2 class="h2">Built in the open, <span class="grad">tested for real</span>.</h2><p class="sub">Four public projects on GitHub, built from scratch. Each has CI, tests against real infrastructure (SQL Server, RabbitMQ, Azure Storage emulators) and a design-decisions write-up.</p></div>
+    <div class="head rv"><span class="eyebrow">Open source</span><h2 class="h2">Built in the open, <span class="grad">tested for real</span>.</h2><p class="sub">Five public projects on GitHub, built from scratch. Each has CI and automated tests; the services are tested against real infrastructure (SQL Server, RabbitMQ, Azure Storage emulators) and documented with design-decision write-ups.</p></div>
 
     <div class="os-grid">
       <article class="card spot os-card rv" style="--glow:34,211,238">
@@ -943,6 +947,24 @@ footer { padding: 40px 0 56px; }
         <p class="m">Scheduled backups with verified off-site copies, retention that never breaks a restore chain, point-in-time restore planning from LSNs, and automatic restore drills with DBCC CHECKDB.</p>
         <div class="tagrow"><span class="tag">SQL Server</span><span class="tag">Azure Blob</span><span class="tag">Windows Service</span><span class="tag">CLI</span></div>
         <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/sql-backup-agent" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/sql-backup-agent/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
+      </article>
+      <article class="card spot os-card os-wide rv" style="--glow:52,211,153">
+        <a class="os-shot os-code" href="https://github.com/KumarNitish007/indiakit" target="_blank" rel="noopener" aria-label="IndiaKit on GitHub"><span class="t">Gstin</span>.<span class="f">Check</span>(<span class="s">"27AAPFU0939F1ZV"</span>);
+<span class="c">// Valid</span>
+<span class="t">Gstin</span>.<span class="f">Check</span>(<span class="s">"27AAPFU0939F1ZX"</span>);
+<span class="c">// Invalid check digit: expected 'V', got 'X'.</span>
+
+<span class="t">Rupees</span>.<span class="f">Format</span>(12345678.9m);
+<span class="c">// ₹1,23,45,678.90</span>
+<span class="t">Rupees</span>.<span class="f">FormatCompact</span>(4_250_000m);
+<span class="c">// ₹42.5 L</span>
+<span class="t">Rupees</span>.<span class="f">ToWords</span>(118000m);
+<span class="c">// Rupees One Lakh Eighteen Thousand Only</span></a>
+        <span class="os-k" style="color:var(--c3)">.NET library · NuGet</span>
+        <h3>IndiaKit</h3>
+        <p class="m">Validation and formatting for Indian business apps. GSTIN with its official check digit, PAN, TAN, Aadhaar (Verhoeff), IFSC and PIN codes with clear error messages; rupees in lakh/crore and in words; GST splits and financial years. ASP.NET and FluentValidation integrations, 105 tests.</p>
+        <div class="tagrow"><span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">.NET Standard 2.0</span><span class="tag">FluentValidation</span></div>
+        <div class="os-foot"><a class="btn ghost" href="https://github.com/KumarNitish007/indiakit" target="_blank" rel="noopener">View code ↗</a><img src="https://github.com/KumarNitish007/indiakit/actions/workflows/ci.yml/badge.svg" alt="CI status" loading="lazy" height="20"></div>
       </article>
     </div>
   </div>
