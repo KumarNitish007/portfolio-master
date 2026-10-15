@@ -14,7 +14,7 @@ A single-page, responsive portfolio with these sections:
 - **Projects** – selected work, including the open-source [Milkora Dairy Farm Tracker](https://github.com/KumarNitish007/Milkora-Dairy-Farm-Tracker)
 - **Experience** – roles and responsibilities
 - **Services** – what I can help with
-- **Contact** – ways to get in touch
+- **Contact** – ways to get in touch, plus a **Download CV** button (also in the header and hero)
 
 ## Built with
 
@@ -34,7 +34,7 @@ git clone https://github.com/KumarNitish007/portfolio-master.git
 
 ```
 index.html      the whole site (markup, styles and scripts)
-assets/         images, e.g. Milkora screenshots
+assets/         images (e.g. Milkora screenshots) and Nitish_Kumar_CV.pdf
 ```
 
 ## Contact
